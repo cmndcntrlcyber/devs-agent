@@ -1,3 +1,5 @@
+from src_ctl import SrcCtl
+
 class JrDev1:
     def __init__(self):
         self.draft_program = {
@@ -38,15 +40,3 @@ class JrDev1:
         # Clearing requests after they have been implemented
         self.draft_program['features'].clear()
         self.draft_program['bugs'].clear()
-
-# This code will be saved to a Python file.
-# For demonstration purposes, let's instantiate the class and run its methods to show their functionality.
-
-# Mock run
-jr_dev1 = JrDev1()
-jr_dev1.create_initial_draft()
-jr_dev1.receive_requests([('feature', 'User authentication'), ('bug', 'Fix page load issue')])
-jr_dev1.implement_requests()
-
-# Since this is a coding environment, we'll display the outputs here.
-# In an actual file, we would not include the mock run and print statements.

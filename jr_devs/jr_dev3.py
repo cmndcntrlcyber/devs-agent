@@ -1,3 +1,5 @@
+from src_ctl import SrcCtl
+
 class JrDev3:
     def __init__(self):
         self.documents = []
@@ -24,15 +26,3 @@ class JrDev3:
             print("Proposed technical solutions based on documents and logs analysis")
         else:
             print("No solutions proposed, insufficient data")
-
-# This code will be saved to a Python file.
-# For demonstration purposes, let's instantiate the class and run its methods to show their functionality.
-
-# Mock run
-jr_dev3 = JrDev3()
-jr_dev3.read_documents(['API Documentation', 'User Manual'])
-jr_dev3.analyze_logs(['Error log 1', 'Error log 2'])
-jr_dev3.propose_solutions()
-
-# Since this is a coding environment, we'll display the outputs here.
-# In an actual file, we would not include the mock run and print statements.

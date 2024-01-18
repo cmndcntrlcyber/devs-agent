@@ -1,3 +1,5 @@
+from src_ctl import SrcCtl
+
 class JrDev4:
     def __init__(self, src_ctl: SrcCtl):
         self.technical_solutions = []
@@ -30,13 +32,3 @@ class JrDev4:
         self.src_ctl.commit_changes(branch_name, "Implemented technical solutions")
         self.src_ctl.push_changes(branch_name)
 
-# For demonstration purposes, let's instantiate the class and run its methods.
-
-# Mock run
-jr_dev4 = JrDev4()
-jr_dev4.interpret_solutions(['Solution 1', 'Solution 2'])
-jr_dev4.review_code('feature-login')
-jr_dev4.implement_solutions('feature-login')
-
-# Since this is a coding environment, we'll display the outputs here.
-# In an actual file, we would not include the mock run and print statements.

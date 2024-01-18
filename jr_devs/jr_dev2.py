@@ -1,3 +1,5 @@
+from src_ctl import SrcCtl
+
 class JrDev2:
     def __init__(self, src_ctl: SrcCtl):
         self.branches = []
