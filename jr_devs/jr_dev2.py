@@ -1,8 +1,10 @@
+
 from src_ctl import SrcCtl
 
 class JrDev2:
     def __init__(self, src_ctl: SrcCtl):
         self.branches = []
+        self.src_ctl = src_ctl
 
     def create_branch(self, base, branch_name):
         # Logic to create a branch from the base
@@ -15,7 +17,6 @@ class JrDev2:
         # Logic to work on bugs in the specified branch
         for bug in bug_list:
             print(f"Working on {bug} in '{branch_name}'")
-        # Assuming the bugs are fixed, we'd commit the changes
         print(f"All bugs fixed in '{branch_name}' and ready for review")
         self.src_ctl.commit_changes(branch_name, "Fixed bugs")
         self.src_ctl.push_changes(branch_name)
@@ -26,4 +27,9 @@ class JrDev2:
         self.src_ctl.commit_changes(branch_name, "Updated documentation")
         self.src_ctl.push_changes(branch_name)
 
-
+    def create_branch_and_fix_bugs(self, base, branch_name, bug_list):
+        # Combined method to create branch and fix bugs as per the workflow
+        self.create_branch(base, branch_name)
+        self.work_on_bugs(branch_name, bug_list)
+        self.document_changes(branch_name)
+        return True  # Assuming success for now

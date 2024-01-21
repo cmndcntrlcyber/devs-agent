@@ -1,6 +1,7 @@
 class SrcCtl:
-    def __init__(self, repo_url):
+    def __init__(self, repo_url, pat=None):
         self.repo_url = repo_url
+        self.pat = pat or os.getenv('GITHUB_PAT')
         self.branches = ['main']
 
     def clone_repo(self):
@@ -23,8 +24,15 @@ class SrcCtl:
             print(f"Branch '{branch_name}' does not exist")
 
     def push_changes(self, branch_name):
-        # Logic to push changes to GitHub
+        # Modified push_changes to use PAT
         if branch_name in self.branches:
+            push_command = f"git push origin {branch_name}"
+            self._run_git_command(push_command)
             print(f"Changes pushed to branch '{branch_name}' in {self.repo_url}")
         else:
             print(f"Branch '{branch_name}' does not exist")
+
+    def _run_git_command(self, command):
+        # Helper method to run Git commands with PAT authentication
+        complete_command = f"echo {self.pat} | {command}"
+        subprocess.run(complete_command, shell=True)

@@ -31,4 +31,3 @@ class JrDev4:
         print(f"All solutions implemented in '{branch_name}'")
         self.src_ctl.commit_changes(branch_name, "Implemented technical solutions")
         self.src_ctl.push_changes(branch_name)
-

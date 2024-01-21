@@ -1,3 +1,4 @@
+
 from src_ctl import SrcCtl
 
 class JrDev3:
@@ -20,9 +21,15 @@ class JrDev3:
 
     def propose_solutions(self):
         # Logic to propose technical solutions based on document analysis and logs
-        # This is a mock logic, in real scenario, it would involve complex analysis
         if self.documents and self.error_logs:
             self.proposed_solutions.append("Proposed solution based on analysis")
             print("Proposed technical solutions based on documents and logs analysis")
         else:
             print("No solutions proposed, insufficient data")
+
+    def propose_technical_solution(self, documents, logs):
+        # Combined method to read, analyze, and propose solutions as per the workflow
+        self.read_documents(documents)
+        self.analyze_logs(logs)
+        self.propose_solutions()
+        return True  # Assuming success for now

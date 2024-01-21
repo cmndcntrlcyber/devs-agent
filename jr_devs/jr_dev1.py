@@ -1,3 +1,4 @@
+
 from src_ctl import SrcCtl
 
 class JrDev1:
@@ -11,14 +12,12 @@ class JrDev1:
 
     def create_initial_draft(self):
         # Logic to create the initial draft of the program
-        # Here we'll simulate the creation of a program draft by initializing a dictionary
         self.draft_program['features'].append("Basic program structure")
         self.draft_program['version'] = 0.1
         print(f"Draft program created with version {self.draft_program['version']}: {self.draft_program['features']}")
 
     def receive_requests(self, requests):
         # Logic to receive new requests from jr_dev5
-        # Requests will be a list of tuples with the format (type, description)
         for req_type, description in requests:
             if req_type == 'feature':
                 self.draft_program['features'].append(description)
@@ -32,7 +31,7 @@ class JrDev1:
             print(f"Implementing feature: {feature}")
         for bug in self.draft_program['bugs']:
             print(f"Fixing bug: {bug}")
-        
+
         # Incrementing version number after implementing requests
         self.draft_program['version'] += 0.1
         print(f"Updated program to version {self.draft_program['version']}")
@@ -40,3 +39,10 @@ class JrDev1:
         # Clearing requests after they have been implemented
         self.draft_program['features'].clear()
         self.draft_program['bugs'].clear()
+        return True  # Assuming success for now
+
+    def create_and_manage_program(self):
+        # Combined method to create and manage program as per the workflow
+        self.create_initial_draft()
+        self.receive_requests(self.requests)
+        return self.implement_requests()  # Returns True if successful
